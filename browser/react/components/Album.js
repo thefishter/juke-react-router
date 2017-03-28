@@ -8,6 +8,11 @@ const Album = (props) => {
   const isPlaying = props.isPlaying;
   const toggleOne = props.toggleOne;
 
+  componentDidMount() {
+    // set state? with album?
+  }
+
+
   return (
     <div className="album">
       <div>
