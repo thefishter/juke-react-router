@@ -11,21 +11,26 @@ export default class Artist extends Component {
   }
 
   componentDidMount() {
-
-
+    const artistId = this.props.routeParams.artistId;
+    const selectArtistInfo = this.props.selectArtistInfo;
+    selectArtistInfo(artistId);
   }
 
   render() {
-    console.log(this.props);
+    console.log("artist render props: ", this.props);
     return (
-            <div>
-              <h3>ARTIST NAME</h3>
-              <h4>ALBUMS</h4>
-              <h4>SONGS</h4>
-            </div>
-
-            )
+      <div>
 
 
+        <h3>{ this.props.selectedArtist.name }</h3>
+
+        <Albums albums={this.props.albums}/>
+
+        <Songs songs={this.props.songs}/>
+
+
+
+      </div>
+    )
   }
 }
