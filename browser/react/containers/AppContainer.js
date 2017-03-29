@@ -6,6 +6,7 @@ import AUDIO from '../audio';
 
 import Albums from '../components/Albums.js';
 import Album from '../components/Album';
+import Artists from '../components/Artists';
 import Sidebar from '../components/Sidebar';
 import Player from '../components/Player';
 
@@ -30,10 +31,17 @@ export default class AppContainer extends Component {
       .then(res => res.data)
       .then(album => this.onLoad(convertAlbums(album)));
 
+    axios.get('api/artists')
+      .then(res => res.data)
+      .then(artists => this.setState({
+        artists // I believe this is ES6
+      }));
+
     AUDIO.addEventListener('ended', () =>
       this.next());
     AUDIO.addEventListener('timeupdate', () =>
       this.setProgress(AUDIO.currentTime / AUDIO.duration));
+
   }
 
   onLoad (albums) {
@@ -120,6 +128,8 @@ export default class AppContainer extends Component {
                // Albums
                , albums: this.state.albums
                , selectAlbum: this.selectAlbum
+               , artists: this.state.artists
+               , artist: this.state.selectedArtist
                })
                : null
 
