@@ -123,17 +123,6 @@ export default class AppContainer extends Component {
                })
                : null
 
-          /*{this.state.selectedAlbum.id ?
-                    <Album
-                      album={this.state.selectedAlbum}
-                      currentSong={this.state.currentSong}
-                      isPlaying={this.state.isPlaying}
-                      toggleOne={this.toggleOne}
-                    /> :
-                    <Albums
-                      albums={this.state.albums}
-                      selectAlbum={this.selectAlbum}
-                    />}*/
         }
         </div>
         <Player
